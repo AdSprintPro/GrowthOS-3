@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Whitecoat Media — Grow Your Practice. Impact More Lives.</title>
+<meta name="description" content="Doctor First. Growth Always. A private strategy call for serious doctors ready to build a predictable practice." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<style>
+  :root{
+    --paper:#F6F2EA;
+    --paper-2:#EFE9DD;
+    --paper-3:#EAE3D3;
+    --ink:#111111;
+    --ink-soft:#2A2A2A;
+    --muted:#6B6459;
+    --line:rgba(17,17,17,0.12);
+    --line-soft:rgba(17,17,17,0.07);
+    --gold:#8A6D3B;
+    --gold-2:#B08A55;
+    --gold-soft:rgba(138,109,59,0.10);
+    --success:#2F6B4F;
+    --success-soft:rgba(47,107,79,0.08);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;}
+  body{overflow-x:hidden;}
+
+  /* ---------- LOADER (prevents flash of wrong page) ---------- */
+  .boot-loader{position:fixed;inset:0;background:var(--paper);z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity 0.3s ease;}
+  .boot-loader.hide{opacity:0;pointer-events:none;}
+  .boot-loader .spin{width:36px;height:36px;border:2px solid var(--line);border-top-color:var(--gold);border-radius:50%;animation:spin 0.8s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* NAV */
+  .nav{padding:18px 22px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line-soft);}
+  .brand{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:0.02em;}
+  .brand span{color:var(--gold);}
+  .nav-tag{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);}
+
+  /* HERO */
+  .hero{padding:56px 22px 40px;text-align:center;}
+  .eyebrow{font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--muted);margin-bottom:22px;}
+  .eyebrow .dot{display:inline-block;width:5px;height:5px;background:var(--gold);border-radius:50%;margin:0 10px;vertical-align:middle;}
+  h1.hero-title{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:42px;line-height:1.1;margin:0 0 18px;letter-spacing:-0.015em;}
+  h1 .accent{font-style:italic;color:var(--gold);}
+  .hero-sub{font-size:16px;line-height:1.6;color:var(--ink-soft);max-width:520px;margin:0 auto 32px;font-weight:400;}
+  .cta-primary{display:inline-block;background:var(--ink);color:var(--paper);padding:18px 34px;border-radius:100px;font-size:15px;font-weight:500;letter-spacing:0.02em;text-decoration:none;border:none;cursor:pointer;transition:all 0.25s ease;box-shadow:0 8px 24px rgba(17,17,17,0.12);font-family:'Inter',sans-serif;}
+  .cta-primary:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(17,17,17,0.18);}
+  .cta-note{display:block;margin-top:14px;font-size:12px;color:var(--muted);letter-spacing:0.02em;}
+  .cta-note strong{color:var(--ink);font-weight:600;}
+
+  /* RESUME BANNER */
+  .resume-banner{max-width:520px;margin:20px auto 0;background:var(--paper-2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;display:none;align-items:center;gap:12px;font-size:13px;}
+  .resume-banner.show{display:flex;}
+  .resume-banner .rb-icon{width:32px;height:32px;background:var(--gold-soft);color:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Cormorant Garamond',serif;font-weight:600;}
+  .resume-banner .rb-text{flex:1;color:var(--ink-soft);line-height:1.4;}
+  .resume-banner .rb-text b{color:var(--ink);}
+  .resume-banner button{background:var(--ink);color:var(--paper);border:none;padding:8px 14px;border-radius:100px;font-size:12px;cursor:pointer;font-family:'Inter',sans-serif;font-weight:500;}
+  .resume-banner .rb-clear{background:transparent;color:var(--muted);font-size:11px;padding:6px 8px;}
+
+  .trust{padding:28px 22px;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);}
+  .trust-row{display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:18px;max-width:640px;margin:0 auto;text-align:center;}
+  .trust-item .n{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--ink);line-height:1;}
+  .trust-item .l{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-top:6px;}
+
+  section{padding:56px 22px;}
+  .sec-eyebrow{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:16px;font-weight:500;}
+  .sec-title{font-family:'Cormorant Garamond',serif;font-size:32px;line-height:1.15;text-align:center;font-weight:500;letter-spacing:-0.01em;margin:0 auto 20px;max-width:520px;}
+  .sec-lede{font-size:15px;line-height:1.65;text-align:center;color:var(--ink-soft);max-width:500px;margin:0 auto;}
+
+  .pain-list{max-width:520px;margin:36px auto 0;}
+  .pain-item{padding:18px 0;border-bottom:1px solid var(--line-soft);display:flex;align-items:flex-start;gap:14px;}
+  .pain-item:last-child{border-bottom:none;}
+  .pain-mark{color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1;margin-top:2px;font-style:italic;}
+  .pain-text{font-size:15px;line-height:1.55;color:var(--ink-soft);}
+
+  .services{padding:56px 22px;background:var(--paper-2);}
+  .service-grid{max-width:560px;margin:36px auto 0;display:flex;flex-direction:column;gap:14px;}
+  .service{background:var(--paper);padding:22px 20px;border-radius:14px;border:1px solid var(--line-soft);}
+  .service-num{font-family:'Cormorant Garamond',serif;font-size:12px;color:var(--gold);letter-spacing:0.12em;font-weight:600;}
+  .service-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin:6px 0 8px;}
+  .service-desc{font-size:14px;line-height:1.55;color:var(--muted);}
+
+  .plans{max-width:560px;margin:40px auto 0;display:flex;flex-direction:column;gap:16px;}
+  .plan{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px 22px;position:relative;}
+  .plan.featured{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+  .plan-badge{position:absolute;top:-11px;left:22px;background:var(--gold);color:#fff;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;padding:5px 12px;border-radius:100px;font-weight:600;}
+  .plan-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:0.01em;}
+  .plan-for{font-size:12px;color:var(--muted);margin-top:4px;letter-spacing:0.02em;}
+  .plan.featured .plan-for{color:rgba(246,242,234,0.6);}
+  .plan-price{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;margin:16px 0 4px;letter-spacing:-0.01em;}
+  .plan-price sup{font-size:16px;font-weight:500;vertical-align:top;margin-right:2px;position:relative;top:8px;}
+  .plan-dur{font-size:12px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;}
+  .plan.featured .plan-dur{color:rgba(246,242,234,0.6);}
+  .plan-list{margin:18px 0 0;padding:0;list-style:none;}
+  .plan-list li{font-size:14px;line-height:1.6;padding:6px 0;color:var(--ink-soft);display:flex;gap:10px;}
+  .plan.featured .plan-list li{color:rgba(246,242,234,0.85);}
+  .plan-list li::before{content:"—";color:var(--gold);flex-shrink:0;}
+  .plan-cta{display:block;text-align:center;margin-top:20px;padding:14px;border-radius:100px;font-size:13px;letter-spacing:0.04em;font-weight:500;text-decoration:none;cursor:pointer;border:1px solid var(--ink);color:var(--ink);background:transparent;width:100%;transition:all 0.2s ease;font-family:'Inter',sans-serif;}
+  .plan.featured .plan-cta{border-color:var(--paper);color:var(--ink);background:var(--paper);}
+  .plan-cta:hover{background:var(--ink);color:var(--paper);}
+  .plan.featured .plan-cta:hover{background:transparent;color:var(--paper);}
+
+  .proof{padding:56px 22px;text-align:center;}
+  .proof-quote{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.4;font-style:italic;font-weight:400;max-width:520px;margin:0 auto 20px;color:var(--ink);}
+  .proof-attr{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);}
+
+  .final-cta{padding:64px 22px 80px;text-align:center;background:var(--paper-2);}
+  .final-cta .sec-title{margin-bottom:12px;}
+  .final-cta .sec-lede{margin-bottom:32px;}
+
+  footer{padding:32px 22px;text-align:center;font-size:11px;color:var(--muted);letter-spacing:0.06em;border-top:1px solid var(--line-soft);}
+
+  .sticky-cta{position:fixed;bottom:0;left:0;right:0;background:var(--paper);border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom));display:none;z-index:80;box-shadow:0 -8px 24px rgba(17,17,17,0.06);}
+  .sticky-cta button{width:100%;background:var(--ink);color:var(--paper);border:none;padding:16px;border-radius:100px;font-size:14px;font-weight:500;letter-spacing:0.02em;cursor:pointer;font-family:'Inter',sans-serif;}
+  .sticky-cta small{display:block;text-align:center;margin-top:6px;font-size:10px;color:var(--muted);letter-spacing:0.06em;}
+
+  /* BOTTOM SHEET */
+  .sheet-overlay{position:fixed;inset:0;background:rgba(17,17,17,0.55);backdrop-filter:blur(4px);z-index:100;display:none;opacity:0;transition:opacity 0.3s ease;}
+  .sheet-overlay.active{display:block;opacity:1;}
+  .sheet{position:fixed;left:0;right:0;bottom:0;background:var(--paper);border-radius:24px 24px 0 0;z-index:101;max-height:96vh;overflow:hidden;transform:translateY(100%);transition:transform 0.35s cubic-bezier(0.25,0.9,0.3,1);display:flex;flex-direction:column;}
+  .sheet.active{transform:translateY(0);}
+  .sheet-handle{width:40px;height:4px;background:var(--line);border-radius:100px;margin:10px auto 0;flex-shrink:0;}
+  .sheet-header{padding:14px 22px 12px;flex-shrink:0;border-bottom:1px solid var(--line-soft);}
+  .sheet-header-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+  .sheet-header-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  .sheet-header-label b{color:var(--ink);}
+  .sheet-close{background:none;border:none;font-size:22px;color:var(--muted);cursor:pointer;padding:0;line-height:1;width:28px;height:28px;display:flex;align-items:center;justify-content:center;}
+  .progress-bar{height:5px;background:var(--line-soft);border-radius:100px;overflow:hidden;position:relative;}
+  .progress-fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--ink) 0%,var(--gold) 100%);border-radius:100px;width:0;transition:width 0.45s cubic-bezier(0.4,0,0.2,1);}
+
+  .sheet-body{padding:24px 22px 20px;overflow-y:auto;flex:1;-webkit-overflow-scrolling:touch;}
+  .step{display:none;animation:fadeIn 0.35s ease;}
+  .step.active{display:block;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+  .step-count{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px;}
+  .q-title{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.25;font-weight:500;margin:0 0 8px;letter-spacing:-0.005em;}
+  .q-help{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:20px;}
+  .options{display:flex;flex-direction:column;gap:10px;}
+  .opt{padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);cursor:pointer;font-size:14px;color:var(--ink);transition:all 0.2s ease;text-align:left;line-height:1.4;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:12px;}
+  .opt:hover{border-color:var(--ink);}
+  .opt.selected{border-color:var(--ink);background:var(--ink);color:var(--paper);}
+  .opt .check{width:18px;height:18px;border:1.5px solid var(--line);border-radius:5px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;transition:all 0.2s ease;color:transparent;}
+  .opt.selected .check{border-color:var(--paper);background:var(--paper);color:var(--ink);}
+
+  .field{margin-top:4px;}
+  .field input,.field textarea,.field select{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);font-family:'Inter',sans-serif;font-size:14px;color:var(--ink);outline:none;transition:border 0.2s ease;resize:none;}
+  .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--ink);}
+  .field textarea{min-height:110px;line-height:1.55;}
+  .field label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px;letter-spacing:0.04em;}
+  .field-inline{display:flex;align-items:center;gap:10px;}
+  .field-inline input{flex:1;text-align:center;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:-0.01em;padding:16px;}
+  .field-inline .unit{font-size:13px;color:var(--muted);letter-spacing:0.04em;white-space:nowrap;}
+  .char-count{font-size:11px;color:var(--muted);text-align:right;margin-top:4px;}
+  .helper-row{display:flex;align-items:center;justify-content:space-between;margin-top:6px;font-size:11px;color:var(--muted);}
+  .helper-row .save-tag{color:var(--success);opacity:0;transition:opacity 0.3s ease;}
+  .helper-row .save-tag.show{opacity:1;}
+  .other-input{margin-top:8px;display:none;}
+  .other-input.show{display:block;}
+
+  .interstitial{text-align:center;padding:12px 4px 8px;}
+  .interstitial .ring{width:64px;height:64px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);font-weight:600;}
+  .interstitial h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;margin:0 0 12px;line-height:1.25;}
+  .interstitial p{font-size:14px;color:var(--ink-soft);line-height:1.6;margin:0 0 14px;}
+  .refund-tag{display:inline-block;background:var(--success-soft);color:var(--success);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;padding:6px 12px;border-radius:100px;font-weight:600;margin-top:6px;}
+
+  .sheet-footer{padding:14px 22px calc(16px + env(safe-area-inset-bottom));border-top:1px solid var(--line-soft);background:var(--paper);flex-shrink:0;display:flex;gap:10px;}
+  .btn-back{background:transparent;border:1px solid var(--line);color:var(--ink-soft);padding:14px 20px;border-radius:100px;font-size:13px;cursor:pointer;font-weight:500;font-family:'Inter',sans-serif;}
+  .btn-next{flex:1;background:var(--ink);color:var(--paper);border:none;padding:14px 20px;border-radius:100px;font-size:14px;cursor:pointer;font-weight:500;letter-spacing:0.02em;transition:opacity 0.2s ease;font-family:'Inter',sans-serif;}
+  .btn-next:disabled{opacity:0.35;cursor:not-allowed;}
+  .btn-next.loading{opacity:0.75;cursor:wait;}
+
+  .phone-wrap{display:flex;gap:8px;}
+  .phone-wrap .cc{width:80px;flex-shrink:0;}
+  .phone-wrap input{flex:1;}
+
+  /* ==========================================================
+     THANK YOU PAGE — Rich Personalization
+     ========================================================== */
+  .booking-page{display:none;min-height:100vh;background:var(--paper);position:relative;overflow-x:hidden;}
+  .booking-page.active{display:block;}
+  .booking-page::before{content:"";position:absolute;top:-100px;right:-100px;width:320px;height:320px;background:radial-gradient(circle,var(--gold-soft) 0%,transparent 70%);border-radius:50%;z-index:0;pointer-events:none;}
+  .booking-page::after{content:"";position:absolute;bottom:-120px;left:-100px;width:280px;height:280px;background:radial-gradient(circle,var(--gold-soft) 0%,transparent 70%);border-radius:50%;z-index:0;pointer-events:none;}
+  .booking-wrap{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 22px;}
+
+  /* Hero */
+  .thank-hero{text-align:center;padding:50px 0 24px;position:relative;}
+  .confetti{position:absolute;top:20px;left:50%;transform:translateX(-50%);width:160px;height:60px;pointer-events:none;}
+  .confetti span{position:absolute;width:2px;height:12px;background:var(--gold);border-radius:100px;opacity:0.55;animation:confettiFloat 3s ease-in-out infinite;--r:0deg;}
+  .confetti span:nth-child(1){left:10%;top:20px;--r:-15deg;animation-delay:0s;}
+  .confetti span:nth-child(2){left:25%;top:8px;--r:10deg;animation-delay:0.4s;background:var(--ink);}
+  .confetti span:nth-child(3){left:45%;top:0;--r:-5deg;animation-delay:0.8s;}
+  .confetti span:nth-child(4){left:65%;top:12px;--r:20deg;animation-delay:0.2s;background:var(--ink);}
+  .confetti span:nth-child(5){left:85%;top:24px;--r:-25deg;animation-delay:0.6s;}
+  @keyframes confettiFloat{0%,100%{transform:translateY(0) rotate(var(--r,0));}50%{transform:translateY(-6px) rotate(var(--r,0));}}
+
+  .success-check{width:96px;height:96px;border-radius:50%;background:var(--success-soft);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;position:relative;animation:pop 0.5s cubic-bezier(0.4,1.4,0.6,1) forwards;}
+  @keyframes pop{0%{transform:scale(0.3);opacity:0;}70%{transform:scale(1.08);}100%{transform:scale(1);opacity:1;}}
+  .success-check svg{width:48px;height:48px;color:var(--success);stroke-dasharray:32;stroke-dashoffset:32;animation:draw 0.6s 0.3s ease-out forwards;}
+  @keyframes draw{to{stroke-dashoffset:0;}}
+
+  .thank-title{font-family:'Cormorant Garamond',serif;font-size:56px;line-height:1;font-weight:600;margin:0 0 12px;letter-spacing:-0.02em;}
+  .thank-title em{font-style:italic;color:var(--gold);}
+  .thank-title .name-em{font-style:italic;color:var(--gold);}
+  .thank-sub{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--ink);margin:0 0 14px;}
+  .thank-desc{font-size:15px;color:var(--ink-soft);line-height:1.65;max-width:520px;margin:0 auto 18px;}
+  .thank-desc b{color:var(--ink);font-weight:600;}
+  .pay-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:var(--success-soft);color:var(--success);border-radius:100px;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;margin-top:6px;}
+
+  /* Personalized Summary Card */
+  .persona-card{background:linear-gradient(180deg,var(--paper) 0%,var(--paper-2) 100%);border:1px solid var(--line);border-radius:20px;padding:28px 24px;margin:32px auto 0;max-width:600px;box-shadow:0 10px 40px rgba(17,17,17,0.05);}
+  .persona-eyebrow{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);font-weight:600;text-align:center;margin-bottom:8px;}
+  .persona-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;line-height:1.3;text-align:center;margin:0 0 22px;letter-spacing:-0.005em;}
+  .persona-title em{font-style:italic;color:var(--gold);}
+  .persona-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .persona-stat{background:var(--paper);border:1px solid var(--line-soft);border-radius:14px;padding:16px;text-align:center;}
+  .persona-stat .val{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--ink);line-height:1;margin-bottom:6px;letter-spacing:-0.01em;}
+  .persona-stat .val em{font-size:14px;color:var(--gold);font-style:italic;font-weight:500;margin-left:2px;}
+  .persona-stat .lbl{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  .persona-focus{background:var(--paper);border:1px dashed var(--gold);border-radius:14px;padding:16px 18px;margin-top:14px;}
+  .persona-focus .lbl{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+  .persona-focus .lbl svg{width:12px;height:12px;}
+  .persona-focus .txt{font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.4;color:var(--ink);font-style:italic;}
+  .persona-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+  .persona-tag{font-size:11px;padding:5px 11px;background:var(--paper);border:1px solid var(--line-soft);border-radius:100px;color:var(--ink-soft);letter-spacing:0.02em;}
+
+  /* Appointment card */
+  .appt-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px 24px;margin:28px auto 0;max-width:600px;box-shadow:0 8px 32px rgba(17,17,17,0.04);}
+  .appt-head{display:flex;gap:16px;align-items:flex-start;margin-bottom:18px;}
+  .appt-icon{width:52px;height:52px;background:var(--gold-soft);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .appt-icon svg{width:26px;height:26px;color:var(--gold);}
+  .appt-content{flex:1;min-width:0;}
+  .appt-eyebrow{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px;}
+  .appt-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;line-height:1.2;margin:0 0 12px;}
+  .appt-list{list-style:none;padding:0;margin:0;}
+  .appt-list li{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:14px;color:var(--ink-soft);}
+  .appt-list li svg{width:16px;height:16px;color:var(--gold);flex-shrink:0;}
+  .appt-note{background:var(--paper-2);border-radius:12px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;margin-top:16px;}
+  .appt-note-icon{width:32px;height:32px;background:var(--paper);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--line-soft);}
+  .appt-note-icon svg{width:16px;height:16px;color:var(--gold);}
+  .appt-note strong{display:block;font-size:14px;margin-bottom:2px;color:var(--ink);}
+  .appt-note span{font-size:13px;color:var(--muted);line-height:1.5;}
+
+  /* Calendly wrap */
+  .cal-wrap{max-width:760px;margin:36px auto 0;background:var(--paper);border:1px solid var(--line-soft);border-radius:20px;overflow:hidden;box-shadow:0 8px 32px rgba(17,17,17,0.04);position:relative;}
+  .cal-wrap-header{padding:18px 22px;border-bottom:1px solid var(--line-soft);display:flex;align-items:center;gap:12px;background:var(--paper-2);}
+  .cal-wrap-header .dot{width:8px;height:8px;background:var(--gold);border-radius:50%;flex-shrink:0;animation:pulse 2s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+  .cal-wrap-header .txt{font-size:13px;color:var(--ink);font-weight:500;letter-spacing:0.02em;}
+  .cal-wrap-header .txt small{display:block;color:var(--muted);font-size:11px;margin-top:2px;font-weight:400;letter-spacing:0.02em;}
+  .cal-fallback{padding:40px 24px;text-align:center;display:none;}
+  .cal-fallback.show{display:block;}
+  .cal-fallback p{font-size:14px;color:var(--muted);margin:0 0 14px;}
+  .cal-fallback a{display:inline-block;background:var(--ink);color:var(--paper);padding:14px 26px;border-radius:100px;text-decoration:none;font-size:14px;font-weight:500;}
+
+  /* What happens next */
+  .whats-next{margin:48px auto 0;max-width:600px;text-align:center;}
+  .whats-next-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;margin:0 0 30px;position:relative;display:inline-block;padding:0 30px;}
+  .whats-next-title::before,.whats-next-title::after{content:"";position:absolute;top:50%;width:24px;height:1px;background:var(--line);}
+  .whats-next-title::before{left:-10px;}
+  .whats-next-title::after{right:-10px;}
+
+  .steps-grid{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:8px;align-items:flex-start;}
+  .step-item{display:flex;flex-direction:column;align-items:center;text-align:center;}
+  .step-icon-wrap{width:64px;height:64px;background:var(--paper);border:1px solid var(--line);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;position:relative;}
+  .step-icon-wrap svg{width:28px;height:28px;color:var(--gold);}
+  .step-num{position:absolute;bottom:-6px;right:-6px;width:22px;height:22px;background:var(--ink);color:var(--paper);border-radius:50%;font-family:'Cormorant Garamond',serif;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;}
+  .step-arrow{display:flex;align-items:center;padding-top:26px;color:var(--line);font-size:20px;}
+  .step-title{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;margin:0 0 4px;line-height:1.3;}
+  .step-desc{font-size:12px;color:var(--muted);line-height:1.45;padding:0 4px;}
+
+  /* Support card */
+  .support-card{max-width:600px;margin:36px auto 0;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .support-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--gold) 0%,var(--ink) 100%);display:flex;align-items:center;justify-content:center;color:var(--paper);font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;flex-shrink:0;}
+  .support-text{flex:1;min-width:180px;}
+  .support-text strong{display:block;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;margin-bottom:2px;}
+  .support-text span{font-size:12px;color:var(--muted);}
+  .support-cta{display:flex;align-items:center;gap:8px;padding:12px 18px;background:var(--ink);color:var(--paper);border-radius:100px;font-size:13px;font-weight:500;text-decoration:none;letter-spacing:0.02em;}
+  .support-cta svg{width:16px;height:16px;}
+
+  /* Privacy footer */
+  .privacy-card{max-width:600px;margin:32px auto 0;background:var(--ink);color:var(--paper);border-radius:16px;padding:24px;display:flex;gap:20px;align-items:center;position:relative;overflow:hidden;}
+  .privacy-icon{width:44px;height:44px;background:rgba(246,242,234,0.08);border:1px solid rgba(246,242,234,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .privacy-icon svg{width:22px;height:22px;color:var(--paper);}
+  .privacy-body{flex:1;min-width:200px;}
+  .privacy-body strong{display:block;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;margin-bottom:4px;}
+  .privacy-body span{font-size:12px;color:rgba(246,242,234,0.65);line-height:1.55;}
+  .privacy-signature{font-family:'Caveat',cursive;font-size:22px;color:var(--gold-2);line-height:1.2;text-align:right;flex-shrink:0;max-width:180px;}
+
+  .booking-foot{text-align:center;padding:30px 22px 50px;font-size:11px;color:var(--muted);letter-spacing:0.06em;font-family:'Inter',monospace;}
+
+  @media (max-width: 640px){
+    h1.hero-title{font-size:34px;}
+    .sec-title{font-size:26px;}
+    .hero{padding:40px 22px 30px;}
+    section{padding:44px 22px;}
+    .sticky-cta{display:block;}
+    body{padding-bottom:80px;}
+    .trust-item .n{font-size:22px;}
+    .q-title{font-size:22px;}
+    .thank-title{font-size:40px;}
+    .thank-sub{font-size:18px;}
+    .persona-title{font-size:20px;}
+    .persona-grid{grid-template-columns:1fr;}
+    .steps-grid{grid-template-columns:1fr;gap:20px;}
+    .step-arrow{display:none;}
+    .privacy-card{flex-direction:column;text-align:center;}
+    .privacy-signature{text-align:center;max-width:100%;}
+  }
+</style>
+</head>
+<body>
+
+<!-- Prevents flash-of-wrong-page during boot -->
+<div class="boot-loader" id="bootLoader"><div class="spin"></div></div>
+
+<!-- ============================================================
+     MAIN LANDING PAGE
+     ============================================================ -->
+<div id="mainPage" style="display:none;">
+
+<nav class="nav">
+  <div class="brand">Whitecoat<span>.</span></div>
+  <div class="nav-tag">For Doctors Only</div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">Private Strategy Session <span class="dot"></span> By Application</div>
+  <h1 class="hero-title">Your practice deserves a <span class="accent">system,</span><br/>not another agency pitch.</h1>
+  <p class="hero-sub">A quiet, focused way to build a predictable practice. Designed for Allopathy, Ayurveda and Homeopathy doctors who value their time. No cold sales calls. Just a real conversation about your growth.</p>
+  <button class="cta-primary" onclick="openSheet()">Book a Strategy Call</button>
+  <span class="cta-note">Takes <strong>2 minutes</strong> to qualify. Refundable ₹499 to confirm.</span>
+
+  <div class="resume-banner" id="resumeBanner">
+    <div class="rb-icon">↺</div>
+    <div class="rb-text">You left off partway through. <b id="resumeStepLabel">Resume where you were?</b></div>
+    <button onclick="openSheet()">Resume</button>
+    <button class="rb-clear" onclick="clearAndStartFresh()">Start over</button>
+  </div>
+</header>
+
+<div class="trust">
+  <div class="trust-row">
+    <div class="trust-item"><div class="n">+156%</div><div class="l">Patient Engagement</div></div>
+    <div class="trust-item"><div class="n">+82%</div><div class="l">Appointments</div></div>
+    <div class="trust-item"><div class="n">6-Month</div><div class="l">Full Transformation</div></div>
+  </div>
+</div>
+
+<section>
+  <div class="sec-eyebrow">You Know The Feeling</div>
+  <h2 class="sec-title">You&rsquo;re a great doctor. The world just doesn&rsquo;t see it yet.</h2>
+  <div class="pain-list">
+    <div class="pain-item"><span class="pain-mark">i.</span><span class="pain-text">Patient inquiries feel unpredictable. Some weeks are full, others are quiet.</span></div>
+    <div class="pain-item"><span class="pain-mark">ii.</span><span class="pain-text">You&rsquo;re handed proposal after proposal from agencies that don&rsquo;t understand medicine.</span></div>
+    <div class="pain-item"><span class="pain-mark">iii.</span><span class="pain-text">Content, follow-ups, reminders. Everything eats into time you&rsquo;d rather spend healing.</span></div>
+    <div class="pain-item"><span class="pain-mark">iv.</span><span class="pain-text">You want to grow with dignity, not perform for social media.</span></div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="sec-eyebrow">What We Actually Do</div>
+  <h2 class="sec-title">A quiet growth engine that runs while you see patients.</h2>
+  <p class="sec-lede">We&rsquo;re not a marketing agency. We build the operating system your practice runs on. Brand, content, patient acquisition, retention. One expert manages it for you end to end.</p>
+  <div class="service-grid">
+    <div class="service"><div class="service-num">01</div><div class="service-title">Digital Renovation</div><div class="service-desc">Website, GMB, Instagram, LinkedIn rebuilt to position you as the obvious choice in your city.</div></div>
+    <div class="service"><div class="service-num">02</div><div class="service-title">15-Minute Doctor Content System&trade;</div><div class="service-desc">AI-powered reels, carousels and educational series. Authority content without stealing your evenings.</div></div>
+    <div class="service"><div class="service-num">03</div><div class="service-title">Patient Acquisition Funnels</div><div class="service-desc">Meta &amp; Google campaigns, landing pages and nurture flows tuned for high-intent patient inquiries.</div></div>
+    <div class="service"><div class="service-num">04</div><div class="service-title">Automation &amp; Workflows</div><div class="service-desc">Follow-ups, reminders, SOPs. Your practice runs smoothly whether you&rsquo;re in OPD or on vacation.</div></div>
+    <div class="service"><div class="service-num">05</div><div class="service-title">Doctors Circle Access</div><div class="service-desc">A private ecosystem of ambitious doctors, collaborations, and opportunity networks.</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-eyebrow">Two Ways to Work With Us</div>
+  <h2 class="sec-title">Start small. Or transform completely.</h2>
+  <p class="sec-lede">We&rsquo;ll help you decide on the strategy call. No pressure.</p>
+
+  <div class="plans">
+    <div class="plan">
+      <div class="plan-name">Starter Package</div>
+      <div class="plan-for">Small clinics &amp; new practices</div>
+      <div class="plan-price"><sup>₹</sup>50,000</div>
+      <div class="plan-dur">2-Month Plan</div>
+      <ul class="plan-list">
+        <li>Profile renovation. Website, GMB, Instagram, LinkedIn</li>
+        <li>30-day content creation. Carousels &amp; reels</li>
+        <li>Series: remedies, testimonials, day-in-a-life, myth busters</li>
+        <li>Educational patient content</li>
+      </ul>
+      <button class="plan-cta" onclick="openSheet('Starter')">Enquire About Starter</button>
+    </div>
+
+    <div class="plan featured">
+      <span class="plan-badge">Flagship</span>
+      <div class="plan-name">Whitecoat Growth OS&trade;</div>
+      <div class="plan-for">Serious doctors ready to scale</div>
+      <div class="plan-price"><sup>₹</sup>5,00,000</div>
+      <div class="plan-dur">6-Month Transformation</div>
+      <ul class="plan-list">
+        <li>Full growth infrastructure. Brand, acquisition, retention</li>
+        <li>Dedicated Growth Manager end-to-end</li>
+        <li>Meta, Google &amp; PR campaigns</li>
+        <li>Events, webinars &amp; influencer collaborations</li>
+        <li>Doctors Circle + Opportunity Network access</li>
+      </ul>
+      <button class="plan-cta" onclick="openSheet('Growth OS')">Apply for Growth OS</button>
+    </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="sec-eyebrow">Doctor First. Growth Always.</div>
+  <p class="proof-quote">&ldquo;We don&rsquo;t just market doctors. We build their digital legacy.&rdquo;</p>
+  <div class="proof-attr">— The Whitecoat Promise</div>
+</section>
+
+<section class="final-cta">
+  <div class="sec-eyebrow">The Next Step</div>
+  <h2 class="sec-title">Ready to see if we&rsquo;re a fit?</h2>
+  <p class="sec-lede">Answer 10 short questions. If we&rsquo;re aligned, confirm your strategy call with a refundable ₹499. That&rsquo;s it.</p>
+  <div style="margin-top:32px;">
+    <button class="cta-primary" onclick="openSheet()">Start My Application</button>
+    <span class="cta-note"><strong>₹499 is 100% refundable</strong> after the call.</span>
+  </div>
+</section>
+
+<footer>© Whitecoat Media &nbsp;·&nbsp; Doctor First. Growth Always.</footer>
+
+<div class="sticky-cta">
+  <button onclick="openSheet()">Book My Strategy Call</button>
+  <small>10 questions · Refundable ₹499</small>
+</div>
+
+<!-- BOTTOM SHEET FUNNEL -->
+<div class="sheet-overlay" id="overlay" onclick="closeSheet()"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true">
+  <div class="sheet-handle"></div>
+  <div class="sheet-header">
+    <div class="sheet-header-top">
+      <div class="sheet-header-label">Step <b id="stepNumLabel">1</b> of <b>10</b> · <span id="progressPct">0%</span></div>
+      <button class="sheet-close" onclick="closeSheet()" aria-label="Close">×</button>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+  <div class="sheet-body" id="sheetBody">
+
+    <div class="step" data-step="1">
+      <div class="step-count">Question 1 of 10</div>
+      <h3 class="q-title">What is the #1 problem you want to solve right now?</h3>
+      <p class="q-help">Select all that apply. This shapes your entire strategy call.</p>
+      <div class="options" data-name="problem" data-multi="1">
+        <button class="opt" data-val="Need more new patients"><span class="check">✓</span><span>I need more new patients</span></button>
+        <button class="opt" data-val="Want more high-value patients"><span class="check">✓</span><span>I want more high-value patients</span></button>
+        <button class="opt" data-val="Enquiries don't convert"><span class="check">✓</span><span>Too many enquiries don&rsquo;t become appointments</span></button>
+        <button class="opt" data-val="Appointments no-show"><span class="check">✓</span><span>Too many appointments don&rsquo;t show up</span></button>
+        <button class="opt" data-val="Build personal brand"><span class="check">✓</span><span>I want to build my personal brand</span></button>
+        <button class="opt" data-val="Weak online presence"><span class="check">✓</span><span>My online presence is weak</span></button>
+        <button class="opt" data-val="Manual team work"><span class="check">✓</span><span>Too much manual work for my team</span></button>
+        <button class="opt" data-val="Don't know where to start"><span class="check">✓</span><span>I want to grow but don&rsquo;t know where to start</span></button>
+        <button class="opt other-trigger" data-val="Other"><span class="check">✓</span><span>Other</span></button>
+      </div>
+      <div class="other-input" id="other_problem">
+        <div class="field" style="margin-top:12px;">
+          <input type="text" placeholder="Please specify..." oninput="onOtherInput('problem', this.value)" />
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-step="2">
+      <div class="step-count">Question 2 of 10</div>
+      <h3 class="q-title">Approximately how many new patient enquiries do you receive per month?</h3>
+      <p class="q-help">A rough number is fine. Total across all channels.</p>
+      <div class="field field-inline">
+        <input type="number" id="q_enquiries" min="0" placeholder="0" inputmode="numeric" oninput="onNumberInput('q_enquiries','enquiries_per_month')" />
+        <span class="unit">enquiries / month</span>
+      </div>
+    </div>
+
+    <div class="step" data-step="3">
+      <div class="step-count">Question 3 of 10</div>
+      <h3 class="q-title">Approximately how many of those enquiries become actual appointments?</h3>
+      <p class="q-help">This helps us understand your conversion gap.</p>
+      <div class="field field-inline">
+        <input type="number" id="q_appointments" min="0" placeholder="0" inputmode="numeric" oninput="onNumberInput('q_appointments','appointments_per_month')" />
+        <span class="unit">appointments / month</span>
+      </div>
+    </div>
+
+    <div class="step" data-step="4">
+      <div class="step-count">Question 4 of 10</div>
+      <h3 class="q-title">Where do most of your new patients currently come from?</h3>
+      <p class="q-help">Select all that apply.</p>
+      <div class="options" data-name="patient_source" data-multi="1">
+        <button class="opt" data-val="Referrals / word of mouth"><span class="check">✓</span><span>Referrals / Word of mouth</span></button>
+        <button class="opt" data-val="Google / Maps"><span class="check">✓</span><span>Google / Google Maps</span></button>
+        <button class="opt" data-val="Instagram / Facebook"><span class="check">✓</span><span>Instagram / Facebook</span></button>
+        <button class="opt" data-val="Google / Meta Ads"><span class="check">✓</span><span>Google Ads / Meta Ads</span></button>
+        <button class="opt" data-val="Hospital / partnerships"><span class="check">✓</span><span>Hospital / Clinic partnerships</span></button>
+        <button class="opt other-trigger" data-val="Other"><span class="check">✓</span><span>Other</span></button>
+      </div>
+      <div class="other-input" id="other_patient_source">
+        <div class="field" style="margin-top:12px;">
+          <input type="text" placeholder="Please specify..." oninput="onOtherInput('patient_source', this.value)" />
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-step="5">
+      <div class="step-count">Question 5 of 10</div>
+      <h3 class="q-title">What happens after someone enquires but doesn&rsquo;t book immediately?</h3>
+      <p class="q-help">Pick the one closest to reality.</p>
+      <div class="options" data-name="followup">
+        <button class="opt" data-val="Receptionist manual"><span class="check">✓</span><span>Receptionist follows up manually</span></button>
+        <button class="opt" data-val="WhatsApp / phone"><span class="check">✓</span><span>WhatsApp / phone follow-up</span></button>
+        <button class="opt" data-val="Automated follow-up"><span class="check">✓</span><span>Automated follow-up</span></button>
+        <button class="opt" data-val="CRM / software"><span class="check">✓</span><span>CRM / software handles it</span></button>
+        <button class="opt" data-val="Nothing consistent"><span class="check">✓</span><span>Nothing happens consistently</span></button>
+        <button class="opt" data-val="Not sure"><span class="check">✓</span><span>I&rsquo;m not sure</span></button>
+      </div>
+    </div>
+
+    <div class="step" data-step="6">
+      <div class="step-count">Question 6 of 10</div>
+      <h3 class="q-title">What have you already tried to grow your practice?</h3>
+      <p class="q-help">Select all that apply. Honest answers help us skip what didn&rsquo;t work for you.</p>
+      <div class="options" data-name="tried" data-multi="1">
+        <button class="opt" data-val="Meta / Instagram Ads"><span class="check">✓</span><span>Meta / Instagram Ads</span></button>
+        <button class="opt" data-val="Google Ads"><span class="check">✓</span><span>Google Ads</span></button>
+        <button class="opt" data-val="Social / personal brand"><span class="check">✓</span><span>Social Media / Personal Branding</span></button>
+        <button class="opt" data-val="SEO / Google Maps"><span class="check">✓</span><span>SEO / Google Maps</span></button>
+        <button class="opt" data-val="Agency / freelancer"><span class="check">✓</span><span>Agency / Freelancer</span></button>
+        <button class="opt" data-val="PR / podcasts / collabs"><span class="check">✓</span><span>PR / Podcasts / Collaborations</span></button>
+        <button class="opt" data-val="Referral campaigns"><span class="check">✓</span><span>Referral campaigns</span></button>
+        <button class="opt" data-val="Nothing consistent"><span class="check">✓</span><span>Nothing consistently</span></button>
+        <button class="opt other-trigger" data-val="Other"><span class="check">✓</span><span>Other</span></button>
+      </div>
+      <div class="other-input" id="other_tried">
+        <div class="field" style="margin-top:12px;">
+          <input type="text" placeholder="Please specify..." oninput="onOtherInput('tried', this.value)" />
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-step="7">
+      <div class="step-count">Question 7 of 10 · Written Response</div>
+      <h3 class="q-title">What has been your biggest frustration with marketing or growth so far?</h3>
+      <p class="q-help">A sentence or two. This is where we spend the most time on your call.</p>
+      <div class="field">
+        <textarea id="q_frustration" maxlength="500" placeholder="For example: I&rsquo;ve worked with two agencies, spent a lot on ads, but couldn&rsquo;t track a single new patient back to it..." oninput="onTextInput('q_frustration','cc1','frustration',500)"></textarea>
+        <div class="helper-row"><span class="save-tag" id="save_q7">✓ Saved</span><span class="char-count" id="cc1">0 / 500</span></div>
+      </div>
+    </div>
+
+    <div class="step" data-step="8">
+      <div class="step-count">A Quick Note</div>
+      <div class="interstitial">
+        <div class="ring">₹</div>
+        <h3>Why we ask for a refundable ₹499</h3>
+        <p>Doctors receive dozens of agency pitches every month. We keep our calendar for those who are seriously evaluating growth for their practice.</p>
+        <p>A small <strong>₹499</strong> confirms your intent. It is <strong>100% refunded</strong> to you at the end of the strategy call, regardless of whether you choose to work with us.</p>
+        <div class="refund-tag">✓ 100% Refundable After Call</div>
+      </div>
+    </div>
+
+    <div class="step" data-step="9">
+      <div class="step-count">Question 8 of 10 · Written Response</div>
+      <h3 class="q-title">If you could fix ONE thing in your practice over the next 6 months, what would it be?</h3>
+      <p class="q-help">Just one. The one that would change everything else.</p>
+      <div class="field">
+        <textarea id="q_fixone" maxlength="400" placeholder="For example: A steady, predictable flow of high-intent patients who value quality over price..." oninput="onTextInput('q_fixone','cc2','fix_one_thing',400)"></textarea>
+        <div class="helper-row"><span class="save-tag" id="save_q8">✓ Saved</span><span class="char-count" id="cc2">0 / 400</span></div>
+      </div>
+    </div>
+
+    <div class="step" data-step="10">
+      <div class="step-count">Question 9 of 10 · Written Response</div>
+      <h3 class="q-title">What would make the next 6 months a clear success for you?</h3>
+      <p class="q-help">Please give us a specific number or outcome if possible.</p>
+      <div class="field">
+        <textarea id="q_success" maxlength="400" placeholder="For example: 100+ new patient enquiries a month, ₹8L monthly revenue, and 25k engaged Instagram followers..." oninput="onTextInput('q_success','cc3','success_definition',400)"></textarea>
+        <div class="helper-row"><span class="save-tag" id="save_q9">✓ Saved</span><span class="char-count" id="cc3">0 / 400</span></div>
+      </div>
+    </div>
+
+    <div class="step" data-step="11">
+      <div class="step-count">Question 10 of 10 · Written Response</div>
+      <h3 class="q-title">What is the ONE thing you want us to analyse during your ₹499 consultation?</h3>
+      <p class="q-help">This becomes the agenda. We&rsquo;ll come prepared with data and a plan.</p>
+      <div class="field">
+        <textarea id="q_analyse" maxlength="400" placeholder="For example: Please audit my Instagram + Google presence and tell me what&rsquo;s stopping high-value patients from finding me..." oninput="onTextInput('q_analyse','cc4','call_focus',400)"></textarea>
+        <div class="helper-row"><span class="save-tag" id="save_q10">✓ Saved</span><span class="char-count" id="cc4">0 / 400</span></div>
+      </div>
+    </div>
+
+    <div class="step" data-step="12">
+      <div class="step-count">Almost there</div>
+      <h3 class="q-title">Where should we send your call details?</h3>
+      <p class="q-help">We&rsquo;ll only use these to confirm your slot and share the strategy summary. No spam, ever.</p>
+      <div class="field" style="margin-bottom:12px;">
+        <label>Full Name</label>
+        <input type="text" id="q_name" placeholder="Dr. Your Name" oninput="onContactInput()" />
+      </div>
+      <div class="field" style="margin-bottom:12px;">
+        <label>WhatsApp Number (with country code)</label>
+        <div class="phone-wrap">
+          <input type="text" class="cc" id="q_cc" value="+91" oninput="onContactInput()" />
+          <input type="tel" id="q_whatsapp" placeholder="98XXXXXXXX" inputmode="tel" oninput="onContactInput()" />
+        </div>
+      </div>
+      <div class="field" style="margin-bottom:12px;">
+        <label>Email</label>
+        <input type="email" id="q_email" placeholder="you@practice.com" inputmode="email" oninput="onContactInput()" />
+      </div>
+      <div class="field" style="margin-bottom:12px;">
+        <label>City</label>
+        <input type="text" id="q_city" placeholder="e.g., Mumbai" oninput="onContactInput()" />
+      </div>
+      <div class="field">
+        <label>Which program interests you most? <span style="color:var(--muted);">(optional)</span></label>
+        <select id="q_plan" onchange="onPlanChange()">
+          <option value="">Not sure yet — help me decide on the call</option>
+          <option value="Starter ₹50k">Starter Package — ₹50k, 2 months</option>
+          <option value="Growth OS ₹5L">Whitecoat Growth OS — ₹5L, 6 months</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="step" data-step="13">
+      <div class="step-count">Final Step</div>
+      <div class="interstitial">
+        <div class="ring">✓</div>
+        <h3>You&rsquo;re qualified. Let&rsquo;s confirm your slot.</h3>
+        <p>Pay <strong>₹499</strong> to lock your private strategy call. You&rsquo;ll pick a time on our calendar right after.</p>
+        <div class="refund-tag">✓ 100% Refundable After Call</div>
+        <p style="margin-top:20px;font-size:12px;color:var(--muted);">Secure payment via Razorpay · UPI, cards, netbanking, wallets</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="sheet-footer" id="sheetFooter">
+    <button class="btn-back" id="btnBack" onclick="prevStep()" style="display:none;">Back</button>
+    <button class="btn-next" id="btnNext" onclick="nextStep()" disabled>Continue</button>
+  </div>
+</div>
+
+</div>
+<!-- END MAIN PAGE -->
+
+
+<!-- ============================================================
+     THANK YOU PAGE
+     ============================================================ -->
+<div class="booking-page" id="bookingPage">
+  <nav class="nav">
+    <div class="brand">Whitecoat<span>.</span></div>
+    <div class="nav-tag">Booking Confirmed</div>
+  </nav>
+
+  <div class="booking-wrap">
+
+    <!-- HERO -->
+    <div class="thank-hero">
+      <div class="confetti"><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="success-check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h1 class="thank-title">Thank you, <em class="name-em" id="tkName">Doctor</em>.</h1>
+      <p class="thank-sub" id="tkSub">Your consultation is confirmed.</p>
+      <p class="thank-desc" id="tkDesc">We&rsquo;ve received your responses and your ₹499 is safely held. Our team is already reviewing everything so we can walk in prepared.</p>
+      <div class="pay-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <span id="payBadgeText">Payment Received · ₹499 Refundable</span>
+      </div>
+    </div>
+
+    <!-- PERSONALIZED SUMMARY -->
+    <div class="persona-card" id="personaCard">
+      <div class="persona-eyebrow">Your Practice Snapshot</div>
+      <h3 class="persona-title" id="personaTitle">Here&rsquo;s what we&rsquo;ll dig into on the call</h3>
+      <div class="persona-grid">
+        <div class="persona-stat">
+          <div class="val" id="statEnquiries">—</div>
+          <div class="lbl">Enquiries / month</div>
+        </div>
+        <div class="persona-stat">
+          <div class="val" id="statConversion">—</div>
+          <div class="lbl" id="statConvLabel">Conversion rate</div>
+        </div>
+      </div>
+      <div class="persona-focus">
+        <div class="lbl">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          Call Focus
+        </div>
+        <div class="txt" id="personaFocus">&mdash;</div>
+      </div>
+      <div class="persona-tags" id="personaTags"></div>
+    </div>
+
+    <!-- APPOINTMENT CARD -->
+    <div class="appt-card">
+      <div class="appt-head">
+        <div class="appt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div class="appt-content">
+          <div class="appt-eyebrow">Your Appointment</div>
+          <h3 class="appt-title" id="apptTitle">Pick a time on our calendar below</h3>
+          <ul class="appt-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span id="apptEmail">Calendar invite sent to your email</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span id="apptWa">WhatsApp reminder before the call</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="appt-note">
+        <div class="appt-note-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <strong>Please join a few minutes early</strong>
+          <span>so we can make the most of the 30 minutes together.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CALENDLY -->
+    <div class="cal-wrap" id="calWrap">
+      <div class="cal-wrap-header">
+        <div class="dot"></div>
+        <div class="txt">Choose your slot<small>Available slots update in real time</small></div>
+      </div>
+      <div id="calendlyEmbed" class="calendly-inline-widget" style="min-width:320px;height:720px;width:100%;"></div>
+      <div class="cal-fallback" id="calFallback">
+        <p>Trouble loading the calendar?</p>
+        <a id="calFallbackLink" href="#" target="_blank" rel="noopener">Open Calendar in New Tab</a>
+      </div>
+    </div>
+
+    <!-- WHAT HAPPENS NEXT -->
+    <div class="whats-next">
+      <h3 class="whats-next-title">What Happens Next?</h3>
+      <div class="steps-grid">
+        <div class="step-item">
+          <div class="step-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11H15M9 15H12M17 3H7C5.9 3 5 3.9 5 5V19C5 20.1 5.9 21 7 21H17C18.1 21 19 20.1 19 19V5C19 3.9 18.1 3 17 3Z"/><path d="M9 3V5H15V3"/></svg>
+            <div class="step-num">1</div>
+          </div>
+          <h4 class="step-title">We Review Your Responses</h4>
+          <p class="step-desc">Our team studies your answers and audits your online presence before the call.</p>
+        </div>
+        <div class="step-arrow">›</div>
+        <div class="step-item">
+          <div class="step-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            <div class="step-num">2</div>
+          </div>
+          <h4 class="step-title">Personalised Strategy Call</h4>
+          <p class="step-desc">30-minute focused session on your exact focus area.</p>
+        </div>
+        <div class="step-arrow">›</div>
+        <div class="step-item">
+          <div class="step-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <div class="step-num">3</div>
+          </div>
+          <h4 class="step-title">Clear Next Steps</h4>
+          <p class="step-desc">You walk away with a plan, whether you work with us or not.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPPORT -->
+    <div class="support-card">
+      <div class="support-avatar">W</div>
+      <div class="support-text">
+        <strong>Questions before our call?</strong>
+        <span>WhatsApp us anytime. We&rsquo;re here to help.</span>
+      </div>
+      <a class="support-cta" href="https://wa.me/919876543210" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.3A7.8 7.8 0 0 0 12 4a7.9 7.9 0 0 0-6.7 12l-1 3.6 3.7-1a7.9 7.9 0 0 0 11.6-6.9c0-2.1-.8-4-2.3-5.4zM12 18.4a6.5 6.5 0 0 1-3.3-.9l-.2-.1-2.2.6.6-2.1-.2-.2A6.5 6.5 0 1 1 12 18.4zm3.5-4.9c-.2-.1-1.1-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0s-.8-.3-1.5-.9c-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4l.3-.3c.1-.1.1-.2.2-.4 0-.1 0-.3 0-.4s-.4-1-.6-1.4c-.1-.3-.3-.3-.4-.3h-.4c-.1 0-.3 0-.5.2s-.7.7-.7 1.7c0 1 .7 2 .8 2.1.1.1 1.5 2.3 3.6 3.2.5.2.9.3 1.2.4.5.2 1 .1 1.3.1.4-.1 1.1-.5 1.3-.9.2-.5.2-.8.1-1z"/></svg>
+        <span>+91 98765 43210</span>
+      </a>
+    </div>
+
+    <!-- PRIVACY -->
+    <div class="privacy-card">
+      <div class="privacy-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="privacy-body">
+        <strong>Your Information is Safe with Us</strong>
+        <span id="privacyBody">We respect your privacy and will only use your details to prepare your call.</span>
+      </div>
+      <div class="privacy-signature">We look forward<br/>to speaking with you!</div>
+    </div>
+
+    <p class="booking-foot" id="payRef">Reference: —</p>
+    <p class="booking-foot" style="margin-top:-14px;"><a href="#" onclick="resetBooking();return false;" style="color:var(--muted);text-decoration:underline;">Not you, or need to start a new booking? Start over</a></p>
+
+  </div>
+</div>
+
+<!-- Calendly widget -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+<script>
+/* ============================================================
+   CONFIG
+   ============================================================ */
+const RAZORPAY_KEY_ID = 'rzp_test_TWRcd9AGPGz6Gm';
+const CALENDLY_URL    = 'https://calendly.com/whitecoatmediaindia';
+const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/REPLACE_WITH_YOUR_DEPLOYMENT_ID/exec';
+
+const STORAGE_KEY = 'wc_funnel_state_v3';
+const PAYMENT_KEY = 'wc_paid_v3';
+const APP_VERSION = 3;
+
+const TOTAL_STEPS = 13;
+const STEP_TO_Q = { 1:1, 2:2, 3:3, 4:4, 5:5, 6:6, 7:7, 8:7, 9:8, 10:9, 11:10, 12:10, 13:10 };
+const Q_STEPS_TOTAL = 10;
+
+/* ============================================================
+   STATE
+   ============================================================ */
+let current = 1;
+let answers = {};
+let paidRecord = null;
+let calendlyInitialized = false;
+let calendlyRetryCount = 0;
+let paymentInFlight = false;
+let rzpInstance = null;
+
+function newLeadId(){
+  return 'WC-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).slice(2,6).toUpperCase();
+}
+
+function safeStorage(op, key, val){
+  try {
+    if(op==='get') return localStorage.getItem(key);
+    if(op==='set') return localStorage.setItem(key, val);
+    if(op==='del') return localStorage.removeItem(key);
+  } catch(e){ return null; }
+}
+function saveState(){
+  try { safeStorage('set', STORAGE_KEY, JSON.stringify({v:APP_VERSION, current, answers})); } catch(e){}
+}
+function loadState(){
+  try {
+    const raw = safeStorage('get', STORAGE_KEY);
+    if(!raw) return null;
+    const parsed = JSON.parse(raw);
+    if(parsed && parsed.v === APP_VERSION && parsed.answers && parsed.answers.lead_id){
+      return { current: parsed.current, answers: parsed.answers };
+    }
+  } catch(e){}
+  return null;
+}
+function loadPaid(){
+  try {
+    const raw = safeStorage('get', PAYMENT_KEY);
+    if(!raw) return null;
+    const rec = JSON.parse(raw);
+    if(rec && rec.payment_id && rec.paid_at_ms){
+      const ageMs = Date.now() - rec.paid_at_ms;
+      if(ageMs < 1000*60*60*24*30) return rec;  // valid for 30 days
+    }
+  } catch(e){}
+  return null;
+}
+
+/* ============================================================
+   SHEETS LOGGER
+   ============================================================ */
+function logToSheet(eventName, extra={}){
+  if(!SHEETS_ENDPOINT || SHEETS_ENDPOINT.indexOf('REPLACE_WITH') !== -1) return;
+  const payload = {
+    lead_id: answers.lead_id || '',
+    event: eventName,
+    timestamp: new Date().toISOString(),
+    user_agent: navigator.userAgent,
+    referrer: document.referrer || '',
+    page_url: location.href,
+    ...answers,
+    ...extra
+  };
+  Object.keys(payload).forEach(k => {
+    if(Array.isArray(payload[k])) payload[k] = payload[k].join(' | ');
+  });
+  try {
+    const body = JSON.stringify(payload);
+    if(navigator.sendBeacon){
+      const blob = new Blob([body], {type:'text/plain;charset=UTF-8'});
+      navigator.sendBeacon(SHEETS_ENDPOINT, blob);
+    } else {
+      fetch(SHEETS_ENDPOINT, {
+        method:'POST', mode:'no-cors',
+        headers:{'Content-Type':'text/plain;charset=UTF-8'},
+        body: body, keepalive: true
+      }).catch(()=>{});
+    }
+  } catch(e){}
+}
+const debouncers = {};
+function debouncedLog(key, event, delay=900){
+  clearTimeout(debouncers[key]);
+  debouncers[key] = setTimeout(()=>logToSheet(event), delay);
+}
+
+/* ============================================================
+   BOOT — decide page BEFORE showing anything
+   ============================================================ */
+(function boot(){
+  // 1) URL signal wins (survives localStorage clears)
+  let urlBooked = false, urlRef = '';
+  try {
+    const url = new URL(location.href);
+    urlBooked = url.searchParams.get('booked') === '1';
+    urlRef = url.searchParams.get('ref') || '';
+  } catch(e){}
+
+  const paid = loadPaid();
+  const saved = loadState();
+  if(saved){ answers = saved.answers; current = saved.current || 1; }
+  else { answers = { lead_id: newLeadId(), started_at: new Date().toISOString() }; saveState(); }
+
+  // If paid → thank-you page directly
+  if(paid){
+    paidRecord = paid;
+    // The post-payment snapshot (paid.answers) is the source of truth;
+    // it always wins over whatever is in the separate funnel-progress state.
+    answers = Object.assign({}, answers, paid.answers || {});
+    document.addEventListener('DOMContentLoaded', ()=>{
+      renderThankYou(paid.payment_id, true);
+      hideLoader();
+    });
+    return;
+  }
+
+  // NOTE: we intentionally do NOT trust bare "?booked=1&ref=..." URL params
+  // as proof of payment. That used to render the Thank-You / "Payment
+  // Received" page for ANYONE who visited such a link (or reloaded an old
+  // tab), even with zero payment made -- this was the actual cause behind
+  // "even cancelling still shows success". The only source of truth for a
+  // completed payment is the signed local payment record from loadPaid().
+  if(urlBooked && !paid){
+    try {
+      const u = new URL(location.href);
+      u.searchParams.delete('booked');
+      u.searchParams.delete('ref');
+      history.replaceState({}, '', u.toString());
+    } catch(e){}
+  }
+
+  // Otherwise → main page
+  document.addEventListener('DOMContentLoaded', ()=>{
+    document.getElementById('mainPage').style.display = 'block';
+    prefillFromState();
+    showResumeIfNeeded();
+    hideLoader();
+  });
+})();
+
+function hideLoader(){
+  const el = document.getElementById('bootLoader');
+  if(!el) return;
+  el.classList.add('hide');
+  setTimeout(()=>{ el.style.display='none'; }, 320);
+}
+
+function showResumeIfNeeded(){
+  if(!answers || !answers.lead_id) return;
+  // Only show if user made real progress
+  const meaningful = (current > 1) || answers.problem || answers.enquiries_per_month || answers.frustration;
+  if(meaningful){
+    const b = document.getElementById('resumeBanner');
+    const label = document.getElementById('resumeStepLabel');
+    const q = STEP_TO_Q[current] || 1;
+    label.textContent = 'Continue from question ' + q + ' of 10';
+    b.classList.add('show');
+  }
+}
+function clearAndStartFresh(){
+  safeStorage('del', STORAGE_KEY);
+  location.reload();
+}
+function resetBooking(){
+  safeStorage('del', PAYMENT_KEY);
+  safeStorage('del', STORAGE_KEY);
+  try {
+    const u = new URL(location.href);
+    u.searchParams.delete('booked');
+    u.searchParams.delete('ref');
+    history.replaceState({}, '', u.toString());
+  } catch(e){}
+  location.reload();
+}
+
+/* ============================================================
+   PREFILL from saved state
+   ============================================================ */
+function prefillFromState(){
+  const map = {
+    'q_enquiries':'enquiries_per_month',
+    'q_appointments':'appointments_per_month',
+    'q_frustration':'frustration',
+    'q_fixone':'fix_one_thing',
+    'q_success':'success_definition',
+    'q_analyse':'call_focus',
+    'q_name':'name',
+    'q_cc':'cc',
+    'q_whatsapp':'whatsapp',
+    'q_email':'email',
+    'q_city':'city',
+    'q_plan':'plan_choice'
+  };
+  Object.keys(map).forEach(id=>{
+    const el = document.getElementById(id);
+    if(el && answers[map[id]] !== undefined && answers[map[id]] !== null && answers[map[id]] !== ''){
+      el.value = answers[map[id]];
+    }
+  });
+  const chars = [['q_frustration','cc1',500],['q_fixone','cc2',400],['q_success','cc3',400],['q_analyse','cc4',400]];
+  chars.forEach(([id,cc,max])=>{
+    const e=document.getElementById(id), c=document.getElementById(cc);
+    if(e&&c) c.textContent = (e.value.length||0)+' / '+max;
+  });
+  document.querySelectorAll('.options').forEach(group=>{
+    const name = group.getAttribute('data-name');
+    const val = answers[name];
+    if(val === undefined || val === null || val === '') return;
+    const isMulti = group.getAttribute('data-multi') === '1';
+    const vals = isMulti ? (Array.isArray(val) ? val : String(val).split(' | ')) : [val];
+    group.querySelectorAll('.opt').forEach(btn=>{
+      if(vals.includes(btn.getAttribute('data-val'))) btn.classList.add('selected');
+    });
+    const otherPanel = document.getElementById('other_' + name);
+    if(otherPanel && vals.includes('Other')) otherPanel.classList.add('show');
+    const otherKey = name + '_other';
+    if(otherPanel && answers[otherKey]){
+      const inp = otherPanel.querySelector('input');
+      if(inp) inp.value = answers[otherKey];
+    }
+  });
+}
+
+/* ============================================================
+   SHEET OPEN / CLOSE / NAV
+   ============================================================ */
+function openSheet(planPreselect){
+  // Hard-block if already paid
+  if(loadPaid()){
+    const rec = loadPaid();
+    renderThankYou(rec.payment_id, true);
+    return;
+  }
+  const overlay = document.getElementById('overlay');
+  const sheet = document.getElementById('sheet');
+  overlay.classList.add('active');
+  setTimeout(()=>sheet.classList.add('active'), 10);
+  document.body.style.overflow = 'hidden';
+  if(planPreselect){ answers.plan_preselect = planPreselect; saveState(); }
+  logToSheet('funnel_opened');
+  goToStep(current || 1);
+}
+function closeSheet(){
+  const overlay = document.getElementById('overlay');
+  const sheet = document.getElementById('sheet');
+  sheet.classList.remove('active');
+  setTimeout(()=>{
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }, 300);
+  logToSheet('funnel_closed', {last_step: current});
+  saveState();
+}
+
+function goToStep(n){
+  current = Math.max(1, Math.min(TOTAL_STEPS, n));
+  document.querySelectorAll('.step').forEach(el=>el.classList.remove('active'));
+  const el = document.querySelector('.step[data-step="'+current+'"]');
+  if(el) el.classList.add('active');
+
+  const qNum = STEP_TO_Q[current] || 0;
+  const pct = Math.round((qNum / Q_STEPS_TOTAL) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressPct').textContent = pct + '%';
+  document.getElementById('stepNumLabel').textContent = Math.max(1, qNum);
+
+  const btnBack = document.getElementById('btnBack');
+  const btnNext = document.getElementById('btnNext');
+  btnBack.style.display = (current>1) ? 'inline-block' : 'none';
+  btnNext.classList.remove('loading');
+
+  if(current === 8) btnNext.textContent = 'I Understand — Continue';
+  else if(current === 13) btnNext.textContent = 'Pay ₹499 (Refundable)';
+  else if(current === 12) btnNext.textContent = 'Continue to Payment';
+  else btnNext.textContent = 'Continue';
+
+  document.getElementById('sheetBody').scrollTop = 0;
+  validateStep();
+  saveState();
+}
+
+function nextStep(){
+  const btn = document.getElementById('btnNext');
+  if(btn.disabled) return;
+  persistCurrentStep();
+  if(current === 13){ startPayment(); return; }
+  if(current < TOTAL_STEPS) goToStep(current+1);
+}
+function prevStep(){ if(current > 1) goToStep(current-1); }
+
+function persistCurrentStep(){
+  logToSheet('step_'+current+'_completed');
+  const saveMap = {7:'save_q7', 9:'save_q8', 10:'save_q9', 11:'save_q10'};
+  if(saveMap[current]) flashSaved(saveMap[current]);
+  saveState();
+}
+function flashSaved(id){
+  const el = document.getElementById(id); if(!el) return;
+  el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'), 1400);
+}
+
+/* ============================================================
+   OPTION BUTTONS
+   ============================================================ */
+document.addEventListener('click', function(e){
+  const btn = e.target.closest('.opt');
+  if(!btn) return;
+  const group = btn.closest('.options');
+  if(!group) return;
+  const name = group.getAttribute('data-name');
+  const isMulti = group.getAttribute('data-multi') === '1';
+  const val = btn.getAttribute('data-val');
+  const otherPanel = document.getElementById('other_'+name);
+
+  if(isMulti){
+    btn.classList.toggle('selected');
+    const arr = Array.from(group.querySelectorAll('.opt.selected')).map(o=>o.getAttribute('data-val'));
+    answers[name] = arr;
+    if(otherPanel){
+      if(arr.includes('Other')) otherPanel.classList.add('show');
+      else {
+        otherPanel.classList.remove('show');
+        if(answers[name+'_other']) delete answers[name+'_other'];
+        const inp = otherPanel.querySelector('input'); if(inp) inp.value = '';
+      }
+    }
+    saveState();
+    validateStep();
+    debouncedLog('multi_'+name, 'multi_'+name+'_changed', 500);
+  } else {
+    group.querySelectorAll('.opt').forEach(o=>o.classList.remove('selected'));
+    btn.classList.add('selected');
+    answers[name] = val;
+    saveState();
+    validateStep();
+    setTimeout(()=>{
+      const stepNum = parseInt(group.closest('.step').getAttribute('data-step'));
+      if(current === stepNum) nextStep();
+    }, 260);
+  }
+});
+
+function onOtherInput(name, val){
+  answers[name+'_other'] = (val||'').trim();
+  saveState();
+  debouncedLog('other_'+name, 'other_'+name+'_typed', 900);
+}
+function onTextInput(id, ccid, key, max){
+  const v = document.getElementById(id).value;
+  document.getElementById(ccid).textContent = v.length + ' / ' + max;
+  answers[key] = v.trim();
+  saveState();
+  validateStep();
+  debouncedLog(id, 'typing_'+key);
+}
+function onNumberInput(id, key){
+  const v = document.getElementById(id).value;
+  answers[key] = v.trim();
+  saveState();
+  validateStep();
+  debouncedLog(id, 'typing_'+key);
+}
+function collectContact(){
+  answers.name     = document.getElementById('q_name').value.trim();
+  answers.cc       = document.getElementById('q_cc').value.trim();
+  answers.whatsapp = document.getElementById('q_whatsapp').value.trim();
+  answers.whatsapp_full = (answers.cc + ' ' + answers.whatsapp).trim();
+  answers.email    = document.getElementById('q_email').value.trim();
+  answers.city     = document.getElementById('q_city').value.trim();
+  answers.plan_choice = document.getElementById('q_plan').value;
+  saveState();
+}
+function onContactInput(){ collectContact(); validateStep(); debouncedLog('contact','contact_typing',1200); }
+function onPlanChange(){ collectContact(); validateStep(); logToSheet('plan_choice_changed'); }
+
+function validateStep(){
+  let ok = false;
+  switch(current){
+    case 1: ok = Array.isArray(answers.problem) && answers.problem.length>0; break;
+    case 2: ok = /^\d+$/.test((document.getElementById('q_enquiries').value||'').trim()); break;
+    case 3: ok = /^\d+$/.test((document.getElementById('q_appointments').value||'').trim()); break;
+    case 4: ok = Array.isArray(answers.patient_source) && answers.patient_source.length>0; break;
+    case 5: ok = !!answers.followup; break;
+    case 6: ok = Array.isArray(answers.tried) && answers.tried.length>0; break;
+    case 7: ok = (document.getElementById('q_frustration').value.trim().length >= 15); break;
+    case 8: ok = true; break;
+    case 9: ok = (document.getElementById('q_fixone').value.trim().length >= 12); break;
+    case 10: ok = (document.getElementById('q_success').value.trim().length >= 10); break;
+    case 11: ok = (document.getElementById('q_analyse').value.trim().length >= 10); break;
+    case 12: {
+      const n = document.getElementById('q_name').value.trim();
+      const w = document.getElementById('q_whatsapp').value.trim().replace(/\D/g,'');
+      const e = document.getElementById('q_email').value.trim();
+      const c = document.getElementById('q_city').value.trim();
+      ok = n.length>2 && w.length>=7 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e) && c.length>1;
+      break;
+    }
+    case 13: ok = true; break;
+  }
+  document.getElementById('btnNext').disabled = !ok;
+}
+
+/* ============================================================
+   RAZORPAY — race-condition safe
+   ============================================================ */
+function startPayment(){
+  // Guard: already paid?
+  if(loadPaid()){
+    renderThankYou(loadPaid().payment_id, true);
+    return;
+  }
+  if(paymentInFlight) return;
+  paymentInFlight = true;
+
+  const btn = document.getElementById('btnNext');
+  btn.classList.add('loading');
+  btn.disabled = true;
+  btn.textContent = 'Opening Razorpay…';
+
+  collectContact();
+  logToSheet('payment_initiated');
+
+  const options = {
+    key: RAZORPAY_KEY_ID,
+    amount: 49900,
+    currency: 'INR',
+    name: 'Whitecoat Media',
+    description: 'Strategy Call Booking · 100% Refundable',
+    image: 'https://ui-avatars.com/api/?name=W&background=111111&color=F6F2EA&size=128&font-size=0.55',
+    prefill: {
+      name:    answers.name || '',
+      email:   answers.email || '',
+      contact: (answers.cc || '+91') + (answers.whatsapp || '')
+    },
+    notes: {
+      lead_id:     answers.lead_id,
+      whatsapp:    answers.whatsapp_full || '',
+      city:        answers.city || '',
+      plan_choice: answers.plan_choice || 'Not sure',
+      call_focus:  (answers.call_focus || '').slice(0,240)
+    },
+    theme: { color: '#111111' },
+    handler: function(response){
+      // Idempotent success
+      if(loadPaid()){ renderThankYou(loadPaid().payment_id, true); return; }
+      // Defensive shape-check: only accept responses that actually look
+      // like a real Razorpay payment id. (Real signature verification
+      // requires a backend; this at least rejects obviously bad/forged
+      // callbacks instead of blindly trusting any object.)
+      if(!response || typeof response.razorpay_payment_id !== 'string' || !/^pay_/.test(response.razorpay_payment_id)){
+        logToSheet('payment_success_rejected_bad_response');
+        return;
+      }
+      onPaymentSuccess(response);
+    },
+    modal: {
+      confirm_close: true,
+      escape: false,
+      backdropclose: false,
+      ondismiss: function(){
+        paymentInFlight = false;
+        // Guard: Razorpay fires ondismiss on ANY modal close, including
+        // right after a successful payment. Don't clobber the success
+        // state or log a false "dismissed" event in that case.
+        if(loadPaid()) return;
+        btn.classList.remove('loading');
+        btn.textContent = 'Pay ₹499 (Refundable)';
+        btn.disabled = false;
+        logToSheet('payment_dismissed');
+      }
+    },
+    retry: { enabled: true, max_count: 2 }
+  };
+
+  try {
+    rzpInstance = new Razorpay(options);
+    rzpInstance.on('payment.failed', function(response){
+      paymentInFlight = false;
+      btn.classList.remove('loading');
+      btn.textContent = 'Pay ₹499 (Refundable)';
+      btn.disabled = false;
+      logToSheet('payment_failed', {
+        reason: response.error && response.error.description || 'unknown',
+        code: response.error && response.error.code || ''
+      });
+      alert('Payment could not be completed.\n\n' + (response.error?.description || 'Please try again.') + '\n\nYour answers are safely saved. You can retry from here.');
+    });
+    rzpInstance.open();
+  } catch(err){
+    paymentInFlight = false;
+    btn.classList.remove('loading');
+    btn.textContent = 'Pay ₹499 (Refundable)';
+    btn.disabled = false;
+    alert('We could not open the payment window. Please refresh and try again.');
+  }
+}
+
+function onPaymentSuccess(response){
+  if(loadPaid()) return; // absolute guard
+  answers.razorpay_payment_id = response.razorpay_payment_id;
+  answers.paid_at = new Date().toISOString();
+
+  const record = {
+    payment_id: response.razorpay_payment_id,
+    paid_at_ms: Date.now(),
+    answers: JSON.parse(JSON.stringify(answers))
+  };
+  safeStorage('set', PAYMENT_KEY, JSON.stringify(record));
+  paidRecord = record;
+  saveState();
+  logToSheet('payment_success', { razorpay_payment_id: response.razorpay_payment_id });
+  paymentInFlight = false;
+
+  // Update URL so refresh restores thank-you
+  try {
+    const u = new URL(location.href);
+    u.searchParams.set('booked','1');
+    u.searchParams.set('ref', response.razorpay_payment_id);
+    history.replaceState({}, '', u.toString());
+  } catch(e){}
+
+  renderThankYou(response.razorpay_payment_id, false);
+}
+
+/* ============================================================
+   THANK YOU — Rich Personalization
+   ============================================================ */
+function firstName(full){
+  if(!full) return 'Doctor';
+  let s = full.trim();
+  // Strip "Dr." prefix if present
+  s = s.replace(/^Dr\.?\s+/i, '').trim();
+  const parts = s.split(/\s+/);
+  const fn = parts[0] || 'Doctor';
+  return 'Dr. ' + fn.charAt(0).toUpperCase() + fn.slice(1).toLowerCase();
+}
+function maskEmail(e){
+  if(!e || e.indexOf('@')===-1) return e || '';
+  const [u,d] = e.split('@');
+  if(u.length<=2) return u+'…@'+d;
+  return u.slice(0,2)+'…'+u.slice(-1)+'@'+d;
+}
+function maskPhone(p){
+  if(!p) return '';
+  const digits = p.replace(/\D/g,'');
+  if(digits.length<4) return p;
+  // Keep the country code + first digit and the last 2 digits visible,
+  // hide the middle -- mirrors the partial-reveal style used by maskEmail.
+  const cc = p.trim().split(/\s+/)[0] || '';
+  const last2 = digits.slice(-2);
+  const middleLen = Math.max(1, digits.length - 3);
+  return (cc ? cc + ' ' : '') + digits.slice(0,1) + '•'.repeat(middleLen) + last2;
+}
+function truncateSentence(s, n){
+  if(!s) return '';
+  s = s.replace(/\s+/g,' ').trim();
+  if(s.length <= n) return s;
+  return s.slice(0, n-1).replace(/[,;\.\s]+$/,'') + '…';
+}
+
+function renderThankYou(paymentId, isReturning){
+  // Merge paid record answers with current answers
+  const rec = loadPaid();
+  if(rec && rec.answers){
+    answers = Object.assign({}, answers, rec.answers);
+  }
+
+  document.getElementById('mainPage').style.display = 'none';
+  document.getElementById('bookingPage').classList.add('active');
+
+  // Header
+  const nm = firstName(answers.name);
+  document.getElementById('tkName').textContent = nm.replace(/^Dr\. /,'');
+  document.getElementById('tkSub').textContent = isReturning
+    ? 'You&rsquo;re all set. Pick a time below.'.replace(/&rsquo;/g,'\u2019')
+    : 'Your consultation is confirmed.';
+
+  // Description personalized
+  const city = (answers.city||'').trim();
+  const focusRaw = (answers.call_focus||'').trim();
+  const focusShort = truncateSentence(focusRaw, 140);
+  let desc = 'We&rsquo;ve received your responses' + (city ? ' from ' + city : '') + ' and your ₹499 is safely held. ';
+  if(focusShort){
+    desc += 'Our team is already reviewing what you asked us to analyse so we walk in prepared.';
+  } else {
+    desc += 'Our team is already reviewing everything so we walk in prepared.';
+  }
+  document.getElementById('tkDesc').innerHTML = desc.replace(/&rsquo;/g,'\u2019');
+  document.getElementById('payBadgeText').textContent = isReturning ? 'Payment Already Received · ₹499 Refundable' : 'Payment Received · ₹499 Refundable';
+
+  // Persona card
+  const enq = parseInt(answers.enquiries_per_month || 0, 10) || 0;
+  const app = parseInt(answers.appointments_per_month || 0, 10) || 0;
+  document.getElementById('statEnquiries').innerHTML = enq > 0 ? enq + '<em>/mo</em>' : '—';
+  if(enq > 0){
+    const rate = Math.min(100, Math.round((app/enq)*100));
+    const gap = 100 - rate;
+    document.getElementById('statConversion').innerHTML = rate + '<em>%</em>';
+    const label = rate < 40 ? 'Conversion — big opportunity' : (rate < 70 ? 'Conversion — room to grow' : 'Conversion — strong');
+    document.getElementById('statConvLabel').textContent = label;
+  } else if(app > 0){
+    document.getElementById('statConversion').innerHTML = app + '<em>/mo</em>';
+    document.getElementById('statConvLabel').textContent = 'Current appointments';
+  } else {
+    document.getElementById('statConversion').textContent = '—';
+    document.getElementById('statConvLabel').textContent = 'Conversion rate';
+  }
+
+  // Persona title based on biggest problem
+  const probs = Array.isArray(answers.problem) ? answers.problem : (answers.problem ? String(answers.problem).split(' | ') : []);
+  let title = 'Here\u2019s what we\u2019ll dig into on the call';
+  if(probs.length){
+    const p = probs[0];
+    const titleMap = {
+      'Need more new patients':          'Getting you a steady flow of <em>new patients</em>',
+      'Want more high-value patients':   'Attracting the <em>right kind</em> of patients',
+      "Enquiries don't convert":         'Turning enquiries into <em>real appointments</em>',
+      'Appointments no-show':            'Fixing the <em>no-show</em> problem',
+      'Build personal brand':            'Building your <em>personal brand</em> with dignity',
+      'Weak online presence':            'Rebuilding your <em>online presence</em>',
+      'Manual team work':                'Freeing your team from <em>manual work</em>',
+      "Don't know where to start":       'A clear <em>starting point</em> for your growth'
+    };
+    title = titleMap[p] || title;
+  }
+  document.getElementById('personaTitle').innerHTML = title;
+
+  // Focus line
+  document.getElementById('personaFocus').textContent = focusRaw ? '\u201C' + truncateSentence(focusRaw, 200) + '\u201D' : 'We\u2019ll audit your practice end to end.';
+
+  // Tag chips
+  const tags = [];
+  if(city) tags.push('📍 ' + city);
+  if(answers.plan_choice) tags.push('🎯 ' + answers.plan_choice);
+  if(answers.plan_preselect && !answers.plan_choice) tags.push('🎯 ' + answers.plan_preselect);
+  const src = Array.isArray(answers.patient_source) ? answers.patient_source : (answers.patient_source ? String(answers.patient_source).split(' | ') : []);
+  if(src.length) tags.push('📥 ' + src.slice(0,2).join(' + '));
+  const tagBox = document.getElementById('personaTags');
+  tagBox.innerHTML = '';
+  tags.forEach(t=>{
+    const el = document.createElement('span');
+    el.className = 'persona-tag';
+    el.textContent = t;
+    tagBox.appendChild(el);
+  });
+
+  // Appointment card personalized lines
+  if(answers.email) document.getElementById('apptEmail').textContent = 'Calendar invite will be sent to ' + maskEmail(answers.email);
+  if(answers.whatsapp_full) document.getElementById('apptWa').textContent = 'WhatsApp reminder on ' + maskPhone(answers.whatsapp_full);
+
+  // Privacy body — subtle personalization
+  const priv = 'We respect your privacy' + (nm && nm !== 'Doctor' ? ', ' + nm : '') + '. Your details are used only to prepare your call.';
+  document.getElementById('privacyBody').textContent = priv;
+
+  // Reference
+  document.getElementById('payRef').textContent = 'Reference: ' + (paymentId || '—') + '  ·  Lead: ' + (answers.lead_id || '—');
+
+  // Calendly fallback link
+  document.getElementById('calFallbackLink').href = CALENDLY_URL;
+
+  // Init Calendly
+  initCalendly();
+  window.addEventListener('message', calendlyListener);
+
+  // Scroll top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  logToSheet(isReturning ? 'thankyou_returning_view' : 'thankyou_view');
+}
+
+function initCalendly(){
+  if(calendlyInitialized) return;
+  const container = document.getElementById('calendlyEmbed');
+  if(!container) return;
+  container.innerHTML = '';
+
+  if(window.Calendly && typeof window.Calendly.initInlineWidget === 'function'){
+    try {
+      window.Calendly.initInlineWidget({
+        url: CALENDLY_URL + '?hide_gdpr_banner=1&primary_color=111111',
+        parentElement: container,
+        prefill: {
+          name:  answers.name  || '',
+          email: answers.email || '',
+          customAnswers: {
+            a1: answers.whatsapp_full || '',
+            a2: (Array.isArray(answers.problem)? answers.problem.join(', '): (answers.problem||'')),
+            a3: answers.plan_choice || answers.plan_preselect || ''
+          }
+        },
+        utm: {
+          utmSource:  'landing_funnel',
+          utmMedium:  'strategy_call',
+          utmCampaign:'lead_' + (answers.lead_id || '')
+        }
+      });
+      calendlyInitialized = true;
+    } catch(e){ retryCalendly(); }
+  } else {
+    retryCalendly();
+  }
+}
+function retryCalendly(){
+  calendlyRetryCount++;
+  if(calendlyRetryCount > 20){ // give up gracefully after ~8 seconds
+    document.getElementById('calFallback').classList.add('show');
+    return;
+  }
+  setTimeout(initCalendly, 400);
+}
+function calendlyListener(e){
+  if(!e.data || typeof e.data !== 'object') return;
+  if(e.data.event && String(e.data.event).indexOf('calendly') === 0){
+    if(e.data.event === 'calendly.event_scheduled'){
+      const evUri  = (e.data.payload && e.data.payload.event && e.data.payload.event.uri) || '';
+      const invUri = (e.data.payload && e.data.payload.invitee && e.data.payload.invitee.uri) || '';
+      logToSheet('call_scheduled', { calendly_event: evUri, calendly_invitee: invUri });
+      try {
+        const rec = loadPaid() || {};
+        rec.answers = Object.assign({}, rec.answers || {}, answers, {
+          call_scheduled_at: new Date().toISOString(),
+          calendly_event: evUri
+        });
+        safeStorage('set', PAYMENT_KEY, JSON.stringify(rec));
+      } catch(err){}
+      const t = document.getElementById('apptTitle');
+      if(t) t.textContent = 'See you on your scheduled time!';
+    }
+  }
+}
+
+/* ============================================================
+   UX POLISH
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', ()=>{
+  const sheet = document.getElementById('sheet');
+  if(sheet){
+    let startY = 0;
+    sheet.addEventListener('touchstart', e=>{ startY = e.touches[0].clientY; }, {passive:true});
+    sheet.addEventListener('touchmove', e=>{
+      const dy = e.touches[0].clientY - startY;
+      if(dy > 90 && sheet.scrollTop === 0) closeSheet();
+    }, {passive:true});
+  }
+});
+document.addEventListener('keydown', e=>{
+  const sheet = document.getElementById('sheet');
+  if(e.key==='Escape' && sheet && sheet.classList.contains('active')) closeSheet();
+});
+window.addEventListener('beforeunload', ()=>{
+  const sheet = document.getElementById('sheet');
+  if(sheet && sheet.classList.contains('active') && current > 1 && current < 13){
+    logToSheet('funnel_abandoned', {last_step: current});
+  }
+});
+
+// If user hits browser Back on the thank-you page, don't kick them into re-payment
+window.addEventListener('popstate', ()=>{
+  if(loadPaid()){
+    renderThankYou(loadPaid().payment_id, true);
+  }
+});
+</script>
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v3d52b47920f24c319d37e2661827c42b1787588026925" integrity="sha512-d9sL6GJLXn6fInD1+TVXhTcQOsmxeHfmHAvwGDIxp5TO+uo1fiWW7mHomMj4MLRlCsJDTqXzWLHJFFlPCEIj/A==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
